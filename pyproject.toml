@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-history"
+version = "1.0.0"
+description = "Keep and search every Claude Code and Codex conversation on your machine. Exact-byte snapshots before the 30-day cleanup, full-text search, secrets redacted."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Michael Barber" }]
+keywords = ["claude-code", "codex", "transcripts", "search", "sqlite", "fts5", "ai-agents", "history"]
+classifiers = [
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Utilities",
+]
+dependencies = []
+
+[project.scripts]
+agent-history = "agent_history:main"
+
+[project.urls]
+Homepage = "https://github.com/mthburnsbarber-web/agent-history"
+
+[tool.setuptools]
+py-modules = ["agent_history"]
