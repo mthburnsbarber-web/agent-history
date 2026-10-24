@@ -14,8 +14,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        python: ["3.9", "3.13"]
+        include:
+          # macOS ships Python 3.9 as /usr/bin/python3, so 3.9 is tested there.
+          # GitHub's current Ubuntu image has no 3.9 build; 3.10 is its oldest.
+          - { os: macos-latest, python: "3.9" }
+          - { os: macos-latest, python: "3.13" }
+          - { os: ubuntu-latest, python: "3.10" }
+          - { os: ubuntu-latest, python: "3.13" }
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     steps:
